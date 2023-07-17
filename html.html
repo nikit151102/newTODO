@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+     
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title> TODO </title>
+     <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+     <body>
+          <header class="header">
+               <div class="block">
+                    <img src="logo.png" alt="Логотип">
+                  </div>
+          </header>
+
+          <div class="mainDesktop computerVersion">
+
+               <div class="content activeItem">
+                    <div class="BlockTasks activeTasks">
+                         <div class="titleaddItem">
+                              <div class="title">
+                                   <label class="titleblock"> 
+                                        Активные
+                                   </label> 
+                              </div>
+                              <div class="addItem">
+                                   <div class="newItem">
+                                        <input class="add" name="addinput" title="addinput" type="text" size="40" >
+                                        <button class="addbtn" onclick="newItem()"></button>
+                                   </div>
+                                   
+
+                                   <div class="choice">
+                                        <select class="btn selection" onchange='findOption(this)'>
+                                             <option value="All">Все задачи</option>
+                                             <option value="Completed">Завершенные</option>
+                                             <option value="Unfulfilled">Активные</option>
+                                        </select>
+                                   </div>
+
+                              </div>
+                         </div>
+
+                          <div class="Item activeItem" id="activeContainer">
+                              <div class="noRecords active"> Нет активных записей </div>
+                         </div>
+                         <div class="footerContent">
+                              <button class="btn" onclick="clears('false')"> очистить</button>
+                         </div>
+
+                    </div>
+               </div>
+
+               <div class="content completedContent ">
+                    <div class=" BlockTasks completedTasks">
+                         <div class="titleaddItem">
+                              <div class="title">
+                                   <label class="titleblock"> 
+                                        Завершенные
+                                   </label> 
+                              </div>
+                              
+                         </div>
+                         <div class="Item completedItem" id="completedContainer">
+                              <div class="noRecords completed"> Нет выполненных записей </div>
+                              
+                         </div>
+                         <div class="footerContent">
+                              <button class="btn" onclick="clears('true')"> очистить</button>
+                         </div>
+
+                    </div>
+               </div>
+          </div>
+
+          <footer class="footer">
+               
+          </footer>
+
+          
+     </body>
+
+     <div class="alert-container">
+          <div class="alert-box">
+            <p>Заполните поле</p>
+            <button class="okButton" onclick="closeAlert()" >ОК</button>
+          </div>
+        </div>
+<script src="script.js"></script>
+</html>

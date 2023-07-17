@@ -1,0 +1,412 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+:root{
+    --background: rgba(193,207,207);
+    --backgroundBlock: rgba(237,242,243);
+    --backgroundBTN: rgba(232,216,208);
+    --backgroundInput: rgba(158,161,154);
+    --backgroundBtnDeleteItem: rgb(250 158 105);
+    --black: #020202;
+    --white: rgba(255, 255, 255, 0.979);
+    --red: #fb0b0b;
+    --green: rgba(0, 177, 35, 0.85);
+    --grey: rgb(194, 194, 194);
+    }
+html,
+
+
+body {
+    height: 100%;
+    line-height: 1;
+    font-family: Rubik;
+    font-size: 12px;
+    background: var(--background);
+}
+
+/*----------Шапка*/
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    text-align: center; 
+}
+  
+.block img {
+    display: inline-block; 
+    width: 40%;
+    min-width: 180px;
+}
+/*---------------------*/
+
+
+
+/*кнопки*/
+
+.btn{
+    width: 125px;
+    height: 60%;
+    background: var(--backgroundBTN);
+    color: var(--black);
+    font-size: 18px;
+}
+
+/*-------------Контент*/
+.mainDesktop{
+    display: flex;
+    width: 100%;
+    height: 85%;
+    flex-direction: row;
+}
+.content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.titleaddItem{
+    width: 100%;
+    min-width: 30%;
+}
+.BlockTasks{
+    width: 80%;
+    height: 80%;
+    background: var(--backgroundBlock);    
+}
+
+
+/*заголовок блоков*/
+.title{
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid var(--black);
+}
+  .titleblock{
+    font-size: 40px;
+    font-family: 'Calypso';
+}
+
+/*Поле ввода задач*/
+.addItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 80%;
+}
+.newItem{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add{
+    width: 65%;
+    height: 80%;
+    margin-right: 5px;
+    padding: 5px 10px 5px 10px;
+    border: 2px solid var(--backgroundInput);
+    font-size: 14px;
+}
+.addbtn{
+    width: 40px;
+    height: 40px;
+    background: var(--backgroundBTN);
+    color: var(--black);
+    font-size: 14px;
+    position: relative;
+}
+
+.addbtn::before, .addbtn::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: var(--black);
+    top: calc(50% - 1px);
+    left: calc(50% - 10px);
+}
+  
+.addbtn::before {
+    transform: rotate(90deg);
+}
+.addbtn:hover::before,
+.addbtn:hover::after {
+    background-color: var(--white);
+}
+
+
+/*cписок задач*/
+.Item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 70%;
+    position: static;
+    overflow-y:auto
+}
+.item{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding-left: 10px;
+    -webkit-box-shadow: 0px 0px 11px -1px rgba(0, 77, 136, 0.2);
+    -moz-box-shadow: 0px 0px 11px -1px rgba(0, 77, 136, 0.2);
+    box-shadow: 0px 0px 11px -1px rgba(0, 77, 136, 0.2);
+  }
+  
+
+  input[type=checkbox]:checked + label.checkboxtext{
+    text-decoration: line-through;
+    color: var(--grey)
+  }
+
+   
+  input.checkboxitem {
+    position: relative;
+    width: 20px; 
+    height: 20px; 
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 2px solid #333; 
+    cursor: pointer;
+}
+
+input.checkboxitem::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 17px;
+    height: 17px;
+    background-color: var(--green); 
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+input.checkboxitem::after {
+    content: "✔";
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    color: var(--white); 
+    opacity: 0;
+    font-size: 12px;
+    transition: opacity 0.2s;
+}
+
+input.checkboxitem:checked::before {
+    opacity: 1;
+}
+
+input.checkboxitem:checked::after {
+    opacity: 1;
+}
+
+
+.checkboxtext
+{
+    font-size: 150%;
+    width: 88%;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+
+
+.noRecords{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 150%;
+}
+.completed{
+    display: none;
+}
+.active{
+    display: none;
+}
+/*удаление задач*/
+
+.deleteButton {
+    background-color: var(--backgroundBtnDeleteItem);
+    padding: 4px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+  
+.deleteButton:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 2px;
+    background-color: var(--white);
+}
+
+
+/*подвал блоков задач*/
+.footerContent{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.choice {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 20%;
+}
+
+
+/*alert окно*/
+
+.alert-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+  
+.alert-box {
+  font-size: 150%;
+  max-width: 400px;
+  padding: 20px;
+  background: var(--background);
+  text-align: center;
+}
+  
+  .okButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: var(--backgroundBTN);
+    color: var(--black);
+    border: none;
+    cursor: pointer;
+  }
+
+@media (min-width: 1025px) {
+  .completedContent{
+    display: flex;
+  }
+  .choice{
+    display: none;
+  }
+  .activeTasks{
+    animation: slideLeft 0.5s ease-in-out;
+  }
+
+  @keyframes slideLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  .completedTasks{
+    animation: slideRight 0.5s ease-in-out;
+  }
+  @keyframes slideRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+}
+
+@media (max-width: 1025px) {
+  .BlockTasks {
+    width: 100%;
+  }
+  .completedContent{
+    display: none;
+  }
+  .choice{
+    display: flex;
+  }
+
+  .activeTasks{
+    opacity: 0;
+    animation: fadeInFromCenter 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeInFromCenter {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+} 
+
+
+@media (max-width: 600px) {
+  .addItem{
+    flex-direction: column;
+  }
+  .Item{
+    height: 65%;
+  }
+}
